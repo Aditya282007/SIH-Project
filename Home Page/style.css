@@ -92,12 +92,80 @@ body::-webkit-scrollbar-thumb{
     }
 }
 
+.arrow {
+    position: absolute;
+    bottom: 30px;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: ease-in 0.5s;
+    animation: bounce 1.5s infinite;
+}
+
+.arrow::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0);
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        transform: translateY(15px);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: translate(0);
+        animation-timing-function: ease-out;
+    }
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        transform: translate(0);
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        transform: translateY(15px);
+        animation-timing-function: ease-in;
+    }
+
+    100% {
+        transform: translate(0);
+        animation-timing-function: ease-out;
+    }
+}
+
+.fade-in {
+    opacity: 1;
+    transition: 1s all ease-in;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: 1s all ease-out;
+}
+
 /*Scroll reveal */
 
 .University-Info{
     font-size: 80px;
     text-align: center;
-    padding: 30px;
     color: firebrick;
     transition: 1s;
     position: relative;
@@ -107,44 +175,112 @@ body::-webkit-scrollbar-thumb{
     content: '';
     bottom: 0;
     right: 0;
+    left: 0;
+    margin: auto;
     position: absolute;
-} .section{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 0;
+    height: 5px;
+    background-color: firebrick;
+    transition: 1s;
+} 
+
+.University-Info:hover::before{
+    width: 350px;
+    left: 0;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
-.section .img-box{
-    height: 500px;
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: #fff;
+    color: #000;
+    width: 30%;
+    border-radius: 10px;
     overflow: hidden;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
 }
 
-.section .img{
+.card:hover .card-image{
+    transform: scale(1.1);
+}
+
+.card:hover{
+    background: #b6adad;
+}
+
+.card-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
 
-.section .content-box{
-    padding-inline: 8em;
+.card-content {
+    padding: 15px;
 }
 
-.section .title{
-    font-size: 3em;
-    max-width: max-content;
-    margin-block-end: 0.25em;
+.card::before{
+    content: '';
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    transition: 1s;
 }
 
-.section .text{
-    opacity: 0.5;
-    line-height: 2;
+.card:hover::before{
+    width: 100%;
+    left: 0;
 }
 
-.section [data-reveal="Up"]{
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.card-link:hover {
+    background-color: #e60000;
+}
+
+.card [data-reveal="Up"]{
     clip-path: inset(0 100% 0 0);
 }
 
-.section [data-reveal="Up"].revealed{
+.card [data-reveal="Up"].revealed{
     animation: reveal-Up 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
 }
 
@@ -156,36 +292,6 @@ body::-webkit-scrollbar-thumb{
         clip-path: inset(0 0 0 0);
     }
 }
-
-.section [data-reveal="right"]{
-    clip-path: inset(0 0 0 100%);
-}
-
-.section [data-reveal="right"].revealed{
-    animation: reveal-right 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
-}
-
-@keyframes reveal-right {
-    0%{
-        clip-path: inset(0 0 0 100%);
-    }
-    100%{
-        clip-path: inset(0 0 0 0);
-    }
-}
-
-
-.section .img-box .img{
-    transform: scale(1.2);
-    transition: transform 1.2s cubic-bezier(0.17, 0.97,0.38,1);
-}
-
-.section .img-box.revealed .img{ transform: scale(1);}
-
-/*Mail section */
-
-
-
 
 /*Attendance and News section*/
 
