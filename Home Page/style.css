@@ -1,0 +1,432 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar{
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: #000000;
+    border-radius: 50px;
+}
+
+/*Background Video*/
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.content {
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 100px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.content h1:hover {
+    -webkit-text-stroke: 2px white;
+    color: transparent;
+    cursor: pointer;
+}
+
+.content a {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    border: 2px solid #fff;
+    padding: 14px 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.content a:hover {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+}
+
+.back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media(min-aspect-ratio: 16/9) {
+    .back-video {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-aspect-ratio: 16/9) {
+    .back-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+/*Scroll reveal */
+
+.University-Info{
+    font-size: 80px;
+    text-align: center;
+    padding: 30px;
+    color: firebrick;
+    transition: 1s;
+    position: relative;
+}
+
+.University-Info::before{
+    content: '';
+    bottom: 0;
+    right: 0;
+    position: absolute;
+} .section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.section .img-box{
+    height: 500px;
+    overflow: hidden;
+}
+
+.section .img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section .content-box{
+    padding-inline: 8em;
+}
+
+.section .title{
+    font-size: 3em;
+    max-width: max-content;
+    margin-block-end: 0.25em;
+}
+
+.section .text{
+    opacity: 0.5;
+    line-height: 2;
+}
+
+.section [data-reveal="Up"]{
+    clip-path: inset(0 100% 0 0);
+}
+
+.section [data-reveal="Up"].revealed{
+    animation: reveal-Up 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
+}
+
+@keyframes reveal-Up {
+    0%{
+        clip-path: inset(0 0 100% 0);
+    }
+    100%{
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.section [data-reveal="right"]{
+    clip-path: inset(0 0 0 100%);
+}
+
+.section [data-reveal="right"].revealed{
+    animation: reveal-right 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
+}
+
+@keyframes reveal-right {
+    0%{
+        clip-path: inset(0 0 0 100%);
+    }
+    100%{
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+.section .img-box .img{
+    transform: scale(1.2);
+    transition: transform 1.2s cubic-bezier(0.17, 0.97,0.38,1);
+}
+
+.section .img-box.revealed .img{ transform: scale(1);}
+
+/*Mail section */
+
+
+
+
+/*Attendance and News section*/
+
+.main{
+    display: grid;
+    background: #000;
+    grid-template-columns: 1fr 1fr;
+    height: 600px;
+}
+
+/*Attendance*/
+
+.attendance{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    grid-column: 1;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendance a{
+    text-decoration: none;
+}
+
+.attendance .total-card{
+    width: 350px;
+    height: 150px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #212121;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.attendance .total-card .number{
+    font-size: 5rem;
+}
+
+.attendance .total-card .text{
+    font-size: 1.5rem;
+}
+
+.attendance .present-card{
+    width: 350px;
+    height: 150px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #009600;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.attendance .present-card .number{
+    font-size: 5rem;
+}
+
+.attendance .present-card .text{
+    font-size: 1.5rem;
+}
+
+
+.attendance .absent-card{
+    width: 350px;
+    height: 150px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #960000;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.attendance .absent-card .number{
+    font-size: 5rem;
+}
+
+.attendance .absent-card .text{
+    font-size: 1.5rem;
+}
+
+.percentage{
+    margin-left: 20px;
+    font-size: 2rem;
+    text-decoration: none;
+    color: #000;
+}
+
+
+/*Campus News*/
+
+.campus-news{
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    grid-column: 2;
+    background: #fff;
+    overflow: scroll;
+    height: 570px;
+}
+
+.campus-news .title{
+    font-size: 3rem;
+    background: red;
+    color: #fff;
+    width: 300px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.campus-news .news-name{
+    font-size: 1.5rem;
+    color: red;
+    border-bottom: 2px solid black;
+}
+.campus-news .news-container{
+    font-size: 1rem;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.campus-news .button{
+    text-align: center;
+    background:rgba(255, 255, 255, 0.7);
+}
+
+.campus-news .btn{
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+
+.campus-news .btn:hover{
+    color: #000;
+    background: #fff;
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+/* Scrollbar */
+
+.campus-news::-webkit-scrollbar{
+    width: 5px;
+      background-color: transparent;
+}
+
+.campus-news::-webkit-scrollbar-thumb{
+    background: #000;
+    border-radius: 50px;
+}
+
+/*Placed Student*/
+
+.student{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.student .img-box{
+    height: 500px;
+    overflow: hidden;
+}
+
+.student .img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.student .content-box{
+    padding-inline: 8em;
+}
+
+.student .title{
+    font-size: 3em;
+    max-width: max-content;
+    margin-block-end: 0.25em;
+}
+
+.student .text{
+    font-size: 1.5rem;
+    line-height: 2;
+}
+
+.student [data-reveal="left"]{
+    clip-path: inset(0 100% 0 0);
+}
+
+.student [data-reveal="left"].revealed{
+    animation: reveal-left 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
+}
+
+@keyframes reveal-left {
+    0%{
+        clip-path: inset(0 100% 0 0);
+    }
+    100%{
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.student [data-reveal="right"]{
+    clip-path: inset(0 0 0 100%);
+}
+
+.student [data-reveal="right"].revealed{
+    animation: reveal-right 1.2s cubic-bezier(0.17, 0.97,0.38,1) forwards 300ms;
+}
+
+@keyframes reveal-right {
+    0%{
+        clip-path: inset(0 0 0 100%);
+    }
+    100%{
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+.student .img-box .img{
+    transform: scale(1.2);
+    transition: transform 1.2s cubic-bezier(0.17, 0.97,0.38,1);
+}
+
+.student .img-box.revealed .img{ transform: scale(1);}
