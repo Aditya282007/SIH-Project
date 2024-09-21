@@ -21,6 +21,12 @@ body::-webkit-scrollbar-thumb{
     border-radius: 50px;
 }
 
+/*Navbar*/
+
+.navbar .btn {
+    margin-right: 20px;
+}
+
 /*Background Video*/
 
 .hero {
@@ -44,31 +50,13 @@ body::-webkit-scrollbar-thumb{
     color: #fff;
     font-weight: 600;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .content h1:hover {
     -webkit-text-stroke: 2px white;
     color: transparent;
     cursor: pointer;
-}
-
-.content a {
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    font-size: 24px;
-    border: 2px solid #fff;
-    padding: 14px 50px;
-    border-radius: 50px;
-    margin-top: 20px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.content a:hover {
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
 }
 
 .back-video {
@@ -191,50 +179,31 @@ body::-webkit-scrollbar-thumb{
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
     gap: 20px;
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 20px;
-}
+    margin-top: 50px; 
+} 
 
-.card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    background-color: #fff;
-    color: #000;
-    width: 30%;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: left;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: 0.5s;
-}
+.card { 
+    background-color: black; 
+    color: white; 
+    width: 25%; 
+    border-radius: 8px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    overflow: hidden; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease; 
+    cursor: pointer; 
+    margin: 20px; 
+} 
 
-.card:hover .card-image{
-    transform: scale(1.1);
-}
-
-.card:hover{
-    background: #b6adad;
-}
-
-.card-image {
-    width: 100%;
-    height: auto;
-}
-
-.card-content {
-    padding: 15px;
-}
-
-.card::before{
+.card:hover { 
+    transform: scale(1.05); 
+    background: rgb(185, 185, 185); 
+} 
+.card::before { 
     content: '';
     bottom: 0;
     right: 0;
@@ -242,7 +211,7 @@ body::-webkit-scrollbar-thumb{
     margin: auto;
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 5px;
     background-color: rgb(0, 0, 0);
     transition: 1s;
 }
@@ -251,29 +220,45 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     left: 0;
 }
+.card-image {
+    width: 100%;
+    height: auto;
+}
+
+.card-content {
+    padding: 15px;
+    flex-grow: 1;
+}
 
 .card h2 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-bottom: 10px;
 }
 
 .card p {
-    font-size: 1em;
-    margin-bottom: 15px;
+    font-size: 0.95em;
+    margin-bottom: 20px;
 }
 
 .card-link {
-    display: inline-block;
+    display: block;
+    text-align: center;
     background-color: red;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 0;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
+    border-radius: 0 0 8px 8px;
 }
 
 .card-link:hover {
-    background-color: #e60000;
+    background-color: #cc0000;
+}
+
+/* Ensure all cards have the same height */
+.card {
+    min-height: 450px;
+    /* Adjust this value as needed */
 }
 
 .card [data-reveal="Up"]{
