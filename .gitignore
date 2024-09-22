@@ -25,3 +25,4 @@ yarn-error.log*
 .hintrc
 package-lock.json
 package.json
+.gitignore
