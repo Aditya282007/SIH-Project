@@ -1,9 +1,7 @@
 import React,{useState} from "react";
 import './style.css';
-import { count, log } from "console";
 const Counter: React.FC = (props) => {
     const [counter,setCounter] = useState(0); 
-    console.log(counter);
     
     const handleIncrement = () => {
         setCounter(counter+1);
