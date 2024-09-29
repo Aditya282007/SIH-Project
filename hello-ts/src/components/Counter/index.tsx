@@ -1,8 +1,27 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import './style.css';
 const Counter: React.FC = (props) => {
-    const [counter,setCounter] = useState(0); 
+    const [counter,setCounter] = useState<number>(0); 
     
+    useEffect(() => {
+        console.log('Counter Mounted');
+
+        return function(){
+            console.log('Counter UnMounted');
+        }
+    },[]);
+
+    // Empty dep arr means -> whole component
+    // if dep has some values
+
+    useEffect(()=>{
+        console.log('User Updated count');
+
+        return () => {
+            console.log("Counter useEffect Return");
+            
+        }
+    },[counter]);
     const handleIncrement = () => {
         setCounter(counter+1);
     }
